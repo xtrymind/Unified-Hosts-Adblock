@@ -37,6 +37,9 @@ do
 	echo "'wr' to add whitelist (use regex - needed for wildcards)"
 	echo -n "'q' to quit: "
 	read -r INPUT
+	if [ $INPUT != "m" ]; then
+        INPUT="$(echo "$INPUT" | sed 's/m//g')"
+	fi
 	DIR=""
 	case "$INPUT" in
 		m) DIR="master/hosts"

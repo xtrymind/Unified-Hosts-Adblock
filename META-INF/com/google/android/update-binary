@@ -62,10 +62,13 @@ if is_mounted /data; then
   if $BOOTMODE; then
     MOUNTPATH=/dev/magisk_merge
     IMG=/data/magisk_merge.img
+  else
+	PATH=/data/magisk:$PATH
   fi
 else
   IMG=/cache/magisk.img
   MAGISKBIN=/cache/data_bin
+  PATH=/cache/data_bin:$PATH
   ui_print "- Data unavailable, using cache workaround"
 fi
 
@@ -160,16 +163,16 @@ if [ -f "$IMG" ]; then
   if [ "$reqSizeM" -gt "$curFreeM" ]; then
     newSizeM=$(((reqSizeM + curUsedM) / 32 * 32 + 64))
     ui_print "- Resizing $IMG to ${newSizeM}M"
-    $MAGISKBIN/magisk --resizeimg $IMG $newSizeM
+    magisk --resizeimg $IMG $newSizeM
   fi
 else
   newSizeM=$((reqSizeM / 32 * 32 + 64));
   ui_print "- Creating $IMG with size ${newSizeM}M"
-  $MAGISKBIN/magisk --createimg $IMG $newSizeM
+  magisk --createimg $IMG $newSizeM
 fi
 
 ui_print "- Mounting $IMG to $MOUNTPATH"
-MAGISKLOOP=`$MAGISKBIN/magisk --mountimg $IMG $MOUNTPATH`
+MAGISKLOOP=`magisk --mountimg $IMG $MOUNTPATH`
 is_mounted $MOUNTPATH || abort"! $IMG mount failed..."
 
 # Create mod paths
@@ -213,7 +216,7 @@ set_permissions
 # Finalizing
 ##########################################################################################
 
-$MAGISKBIN/magisk --umountimg $MOUNTPATH $MAGISKLOOP
+magisk --umountimg $MOUNTPATH $MAGISKLOOP
 rmdir $MOUNTPATH
 
 # Shrink the image if possible
@@ -221,7 +224,7 @@ image_size_check $IMG
 newSizeM=$((curUsedM / 32 * 32 + 64))
 if [ $curSizeM -gt $newSizeM ]; then
   ui_print "- Shrinking $IMG to ${newSizeM}M"
-  $MAGISKBIN/magisk --resizeimg $IMG $newSizeM
+  magisk --resizeimg $IMG $newSizeM
 fi
 
 $BOOTMODE || recovery_cleanup

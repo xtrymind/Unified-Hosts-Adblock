@@ -74,4 +74,9 @@ v2.3
  - Bug fixes for pixels
  
 v2.4
- - Added cache workaround (oddly absent from magisk module template v4). Thanks to @g40q90 at xda-developers for torubleshooting
+ - Added cache workaround (oddly absent from magisk module template v4). Thanks to @g40q90 at xda-developers for troubleshooting
+ 
+v2.5
+ - Added fixes for samsung stock kernel users. Thanks to @jenslody at xda-developers for the fix
+ - Fixed versioncode for magisk manager (thanks to @Nomelas on github for pointing it out)
+ - Script now won't throw error if user inputs 'm' with other options (for example, inputting 'mfp' instead of 'fp' won't thrown an error) (thanks to @Didgeridoohan at xda-developers for the idea)
