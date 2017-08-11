@@ -6,7 +6,7 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
  `su`  
  `hosts`
  - Then follow the prompts to install host file of choice
-OR
+##### OR
  - Open terminal and type:
  `su -c hosts arg1 arg2 arg3`
  - The script will apply your arguments all at once and close. Useful for automation purposes
