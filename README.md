@@ -6,6 +6,12 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
  `su`  
  `hosts`
  - Then follow the prompts to install host file of choice
+####OR
+ - Open terminal and type:
+ `su -c hosts arg1 arg2 arg3`
+ - The script will apply your arguments all at once and close. Useful for automation purposes
+ - For example: `su -c hosts m wr b`
+ - Script will apply the master filter, then your regex whitelist, then your blacklist
 
 #### Whitelist Instructions:
  - Create a text file on sdcard called "whitelist"
@@ -19,7 +25,6 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
  
 #### To Remove Whitelist/Blacklist:
  - Just run hosts script and reinstall host file of choice
-
 
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
@@ -80,3 +85,8 @@ v2.5
  - Added fixes for samsung stock kernel users. Thanks to @jenslody at xda-developers for the fix
  - Fixed versioncode for magisk manager (thanks to @Nomelas on github for pointing it out)
  - Script now won't throw error if user inputs 'm' with other options (for example, inputting 'mfp' instead of 'fp' won't thrown an error) (thanks to @Didgeridoohan at xda-developers for the idea)
+ 
+v2.6
+ - Added argument capability to the script for easy automation (thanks to @Didgeridoohan at xda-developers for the idea)
+ - Moved all temporary files to /cache, added unique prefix to all to prevent errors due to already existing files/folders
+ 

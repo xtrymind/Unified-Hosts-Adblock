@@ -1,11 +1,12 @@
 echo "Unified Hosts Adblocker"
 alias wget="/magisk/unifiedhostsadblock/wget"
 HOST=/magisk/.core/hosts
-TREADME=/cache/treadme
+TREADME=/cache/uhatreadme
 FILTER=/magisk/unifiedhostsadblock/filter
 WHITELIST=/sdcard/whitelist
 BLACKLIST=/sdcard/blacklist
-TEMP=/sdcard/temp
+TEMP=/cache/uhatemp
+COUNT=1
 wget -q -O $TREADME --no-check-certificate https://raw.githubusercontent.com/StevenBlack/hosts/master/readme.md
 grep "Last updated:" $TREADME
 if [ -f $FILTER ]; then
@@ -20,27 +21,35 @@ else
 	touch $FILTER
 	echo "No hosts file yet applied"
 fi
-echo "You can use any combination of the letters below"
-echo "For example: inputting 'fps' would yield master+fakenews+porn+social"
 while true
 do
-	echo "Select an option below:"
-	echo "--------------------------------"
-	echo "'m' for adware+malware"
-	echo "'f' for master+fakenews"
-	echo "'g' for master+gambling"
-	echo "'p' for master+porn"
-	echo "'s' for master+social"
-	echo "To disable, just toggle the enable systemless hosts in magisk manager"
-	echo "'b' to add blacklist"
-	echo "'w' to add whitelist (search for exact strings)"
-	echo "'wr' to add whitelist (use regex - needed for wildcards)"
-	echo -n "'q' to quit: "
-	read -r INPUT
-	if [ $INPUT != "m" ]; then
-        INPUT="$(echo "$INPUT" | sed 's/m//g')"
+	INPUT=$(eval "echo \$$COUNT")
+	if [ ! "$INPUT" ]; then
+		if [ "$1" ]; then
+			rm -f $TREADME
+			exit 0
+		fi
+		echo ""
+		echo "You can use any combination of the letters below"
+		echo "For example: inputting 'fps' would yield master+fakenews+porn+social"
+		echo "Select an option below:"
+		echo "--------------------------------"
+		echo "'m' for adware+malware"
+		echo "'f' for master+fakenews"
+		echo "'g' for master+gambling"
+		echo "'p' for master+porn"
+		echo "'s' for master+social"
+		echo "To disable, just toggle the enable systemless hosts in magisk manager"
+		echo "'b' to add blacklist"
+		echo "'w' to add whitelist (search for exact strings)"
+		echo "'wr' to add whitelist (use regex - needed for wildcards)"
+		echo -n "'q' to quit: "
+		read -r INPUT
+		if [ $INPUT != "m" ]; then
+			INPUT="$(echo "$INPUT" | sed 's/m//g')"
+		fi
+		DIR=""
 	fi
-	DIR=""
 	case "$INPUT" in
 		m) DIR="master/hosts"
 		;;
@@ -78,9 +87,9 @@ do
 				echo ""
 				echo "*No Whitelist detected*"
 				echo "Copy your whilelist to /sdcard"
-				echo ""
 		    else
 				if [ -f "$HOST" ]; then
+					echo ""
 					echo "Applying Whitelist"
 					grep -Fvxf $WHITELIST $HOST > $TEMP
 					mv $TEMP $HOST
@@ -88,7 +97,6 @@ do
 					echo ""
 					echo "No hosts file detected"
 					echo "Apply a hosts file first"
-					echo ""
 				fi
 		    fi
 		;;
@@ -96,9 +104,9 @@ do
 				echo ""
 				echo "*No Whitelist detected*"
 				echo "Copy your whilelist to /sdcard"
-				echo ""
 		    else
 				if [ -f "$HOST" ]; then
+					echo ""
 					echo "Applying Whitelist (regex)"
 					grep -vxf $WHITELIST $HOST > $TEMP
 					mv $TEMP $HOST
@@ -106,7 +114,6 @@ do
 					echo ""
 					echo "No hosts file detected"
 					echo "Apply a hosts file first"
-					echo ""
 				fi
 		    fi
 		;;
@@ -114,10 +121,10 @@ do
 				echo ""
 				echo "*No Blacklist detected*"
 				echo "Copy your blacklist to /sdcard"
-				echo ""
 			else
 				if [ -f "$HOST" ]; then
 					if [ -s $BLACKLIST ]; then
+						echo ""
 						echo "Applying Blacklist"
 						NEWFILTERS="$(cat $BLACKLIST)"
 						printf '%s\n' "$NEWFILTERS" | while IFS= read -r linenew
@@ -130,13 +137,11 @@ do
 						echo ""
 						echo "Blacklist file is empty"
 						echo "No new filter rules added"
-						echo ""
 					fi
 				else
 					echo ""
 					echo "No hosts file detected"
 					echo "Apply a hosts file first"
-					echo ""
 				fi
 		    fi
 			;;
@@ -144,13 +149,15 @@ do
 		;;
 		*)  echo ""
 			echo "Invalid input. Don't use any spaces between letters"
-			echo ""
 		;;
 	esac
 	if [ $DIR ]; then
+		echo ""
 		wget -O $HOST --no-check-certificate https://raw.githubusercontent.com/StevenBlack/hosts/$DIR
 		grep "Last updated:" $TREADME > $FILTER
 	fi
-rm -f $TREADME
+	DIR=""
+	COUNT=$((COUNT+1))
 done
+rm -f $TREADME
 echo "Done!"
