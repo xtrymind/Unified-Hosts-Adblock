@@ -90,3 +90,6 @@ v2.6
  - Added argument capability to the script for easy automation (thanks to @Didgeridoohan at xda-developers for the idea)
  - Moved all temporary files to /cache, added unique prefix to all to prevent errors due to already existing files/folders
  
+v2.7
+ - Module will now uninstall if installer detects that the same version is already installed
+ 
