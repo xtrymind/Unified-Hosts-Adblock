@@ -29,67 +29,66 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
 ## Changelog
-v1.0
- - Initial release
+v2.7
+ - Module will now uninstall if installer detects that the same version is already installed (thanks to @Didgeridoohan at xda-developers for the idea)
 
-v1.1 
- - Changed from using curl to wget and built in wget (not all roms have curl apparently)
+v2.6
+ - Added argument capability to the script for easy automation (thanks to @Didgeridoohan at xda-developers for the idea)
+ - Moved all temporary files to /cache, added unique prefix to all to prevent errors due to already existing files/folders
 
-v1.2
- - Made minor changes to Readme, removed support and donate links from module.prop, and removed changelog to meet standards of magisk manager 4.2 update
+v2.5
+ - Added fixes for samsung stock kernel users. Thanks to @jenslody at xda-developers for the fix
+ - Fixed versioncode for magisk manager (thanks to @Nomelas on github for pointing it out)
+ - Script now won't throw error if user inputs 'm' with other options (for example, inputting 'mfp' instead of 'fp' won't thrown an error) (thanks to @Didgeridoohan at xda-developers for the idea)
 
-v1.3
- - Removed broken disable option and added directions for disabling hosts mod
+v2.4
+ - Added cache workaround (oddly absent from magisk module template v4). Thanks to @g40q90 at xda-developers for troubleshooting
 
-v1.4
- - Added date hosts were last updated (so you can determine if yours need updated)
- - Added whitelist feature
- - Minor restructuring of hosts script header
+v2.3
+ - Bug fixes for pixels
 
-v1.5
- - Updated to magisk 11.5 (template v2)
+v2.2
+ - Added blacklist feature
+
+v2.1
+ - Update for magisk 13.1 (NOTE: previous versions of magisk are no longer compatible)
+
+v2.0
+ - Moved included wget to out of system completely, hosts script is only file that will use it (prevents potential conflicts). Thanks to @rignfool and @veez21
+ - Added wildcard support to whitelist
  
-v1.6
- - Updated to magisk 11.6 (template v3)
- 
-v1.7
- - Added pixel support
- 
+v1.9
+ - Fixed last updated date change
+ - Fixed whitelist option
+
 v1.8
  - Added all possible letter combinations (order no longer matters)
  - Fixed up pixel support - still WIP (thanks to @ahrion at xda-developers)
  - Fixed Last Updated date change
  - Added update check notification at beginning of script
 
-v1.9
- - Fixed last updated date change
- - Fixed whitelist option
+v1.7
+ - Added pixel support
+
+v1.6
+ - Updated to magisk 11.6 (template v3)
  
-v2.0
- - Moved included wget to out of system completely, hosts script is only file that will use it (prevents potential conflicts). Thanks to @rignfool and @veez21
- - Added wildcard support to whitelist
+v1.5
+ - Updated to magisk 11.5 (template v2)
  
-v2.1
- - Update for magisk 13.1 (NOTE: previous versions of magisk are no longer compatible)
+v1.4
+ - Added date hosts were last updated (so you can determine if yours need updated)
+ - Added whitelist feature
+ - Minor restructuring of hosts script header
+
+v1.3
+ - Removed broken disable option and added directions for disabling hosts mod
  
-v2.2
- - Added blacklist feature
- 
-v2.3
- - Bug fixes for pixels
- 
-v2.4
- - Added cache workaround (oddly absent from magisk module template v4). Thanks to @g40q90 at xda-developers for troubleshooting
- 
-v2.5
- - Added fixes for samsung stock kernel users. Thanks to @jenslody at xda-developers for the fix
- - Fixed versioncode for magisk manager (thanks to @Nomelas on github for pointing it out)
- - Script now won't throw error if user inputs 'm' with other options (for example, inputting 'mfp' instead of 'fp' won't thrown an error) (thanks to @Didgeridoohan at xda-developers for the idea)
- 
-v2.6
- - Added argument capability to the script for easy automation (thanks to @Didgeridoohan at xda-developers for the idea)
- - Moved all temporary files to /cache, added unique prefix to all to prevent errors due to already existing files/folders
- 
-v2.7
- - Module will now uninstall if installer detects that the same version is already installed (thanks to @Didgeridoohan at xda-developers for the idea)
- 
+v1.2
+ - Made minor changes to Readme, removed support and donate links from module.prop, and removed changelog to meet standards of magisk manager 4.2 update
+
+v1.1 
+ - Changed from using curl to wget and built in wget (not all roms have curl apparently)
+
+v1.0
+ - Initial release
