@@ -29,6 +29,9 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
 ## Changelog
+v2.8
+ - Updated to template v1400 for magisk v14
+
 v2.7
  - Module will now uninstall if installer detects that the same version is already installed (thanks to @Didgeridoohan at xda-developers for the idea)
 
