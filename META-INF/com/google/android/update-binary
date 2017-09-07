@@ -51,7 +51,7 @@ is_mounted() {
 require_new_magisk() {
   ui_print "***********************************"
   ui_print "! $MAGISKBIN isn't setup properly!"
-  ui_print "! Please install Magisk v13.7+!"
+  ui_print "!  Please install Magisk v14.0+!"
   ui_print "***********************************"
   exit 1
 }
@@ -171,7 +171,7 @@ fi
 
 ui_print "- Mounting $IMG to $MOUNTPATH"
 MAGISKLOOP=`$MAGISKBIN/magisk --mountimg $IMG $MOUNTPATH`
-is_mounted $MOUNTPATH || abort"! $IMG mount failed..."
+is_mounted $MOUNTPATH || abort "! $IMG mount failed..."
 
 if [ "$(cat $MODPATH/module.prop)" == "$(cat $INSTALLER/module.prop)" ]; then
   ACTION="Uninstall"
