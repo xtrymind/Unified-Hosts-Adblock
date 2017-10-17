@@ -29,6 +29,9 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
 ## Changelog
+v3.1
+ - Remove old cache img support. All magisk installs are now located in /data. If your recovery doesn't have access to data, install via magisk manager
+ 
 v3.0
  - Update to template 1410 (magisk 14.2 compatibility) while maintaining backwards compatibility with 14.0
 
