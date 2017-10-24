@@ -92,6 +92,11 @@ else
   require_new_magisk
 fi
 
+# Magisk clean flash support
+if [ -e /data/magisk -a ! -e /data/magisk.img ]; then
+  /system/bin/make_ext4fs -l 64M /data/magisk.img
+fi
+
 $BOOTMODE && ! is_mounted /magisk && abort "! Magisk is not activated!"
 [ ! -f /system/build.prop ] && abort "! /system could not be mounted!"
 
