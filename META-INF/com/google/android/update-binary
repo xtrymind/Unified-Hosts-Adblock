@@ -93,7 +93,7 @@ else
 fi
 
 # Magisk clean flash support
-if [ -e /data/magisk -a ! -e /data/magisk.img ]; then
+if [ -d /data/magisk -a ! -f /data/magisk.img ]; then
   /system/bin/make_ext4fs -l 64M /data/magisk.img
 fi
 
