@@ -113,11 +113,6 @@ else
 fi
 
 if $INSTALL; then
-  # Magisk clean flash support
-  # if [ -d /data/adb/magisk -a ! -f /data/adb/magisk.img ]; then
-    # /system/bin/make_ext4fs -l 64M /data/adb/magisk.img
-  # fi
-
   # Create mod paths
   rm -rf $MODPATH 2>/dev/null
   mkdir -p $MODPATH
