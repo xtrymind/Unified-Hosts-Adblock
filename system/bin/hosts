@@ -1,8 +1,9 @@
 echo "Unified Hosts Adblocker"
-alias wget="/magisk/unifiedhostsadblock/wget"
-HOST=/magisk/.core/hosts
+alias wget=/sbin/.core/busybox/wget
+alias grep=/sbin/.core/busybox/grep
+HOST=/sbin/.core/img/.core/hosts
 TREADME=/cache/uhatreadme
-FILTER=/magisk/unifiedhostsadblock/filter
+FILTER=/sbin/.core/img/unifiedhostsadblock/filter
 WHITELIST=/sdcard/whitelist
 BLACKLIST=/sdcard/blacklist
 TEMP=/cache/uhatemp
@@ -45,7 +46,7 @@ do
 		echo "'wr' to add whitelist (use regex - needed for wildcards)"
 		echo -n "'q' to quit: "
 		read -r INPUT
-		if [ $INPUT != "m" ]; then
+		if [ "$INPUT != "m" ]; then
 			INPUT="$(echo "$INPUT" | sed 's/m//g')"
 		fi
 		DIR=""
