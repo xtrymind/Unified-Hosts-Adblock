@@ -29,6 +29,10 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
 ## Changelog
+v3.4
+  - Added app! Thanks to @Megakaban_ at xda-developers)
+  - Aliasing magisk busybox applets is glitchy, alias to actual busybox binary instead
+
 v3.3
  - Use magisk busybox for hosts script (thanks to @Didgeridoohan at xda-developers for the idea)
 

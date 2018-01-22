@@ -1,6 +1,6 @@
 echo "Unified Hosts Adblocker"
-alias wget=/sbin/.core/busybox/wget
-alias grep=/sbin/.core/busybox/grep
+alias wget="/data/adb/magisk/busybox wget"
+alias grep="/data/adb/magisk/busybox grep"
 HOST=/sbin/.core/img/.core/hosts
 TREADME=/cache/uhatreadme
 FILTER=/sbin/.core/img/unifiedhostsadblock/filter
