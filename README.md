@@ -29,6 +29,9 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
 ## Changelog
+v3.6
+  - Put app in vendor if oreo
+
 v3.5
   - Updated app to v1.3
 
