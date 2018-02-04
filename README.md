@@ -31,6 +31,8 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## Changelog
 v3.6
   - Put app in vendor if oreo
+  - Have wget check certificates now since magisk busybox supports it
+  - Attempt fix of weird busybox issues
 
 v3.5
   - Updated app to v1.3
