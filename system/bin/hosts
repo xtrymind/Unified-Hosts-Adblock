@@ -1,4 +1,3 @@
-echo " "
 if [ ! -d /sbin/.core/mirror/bin ]; then
   mkdir -p /sbin/.core/mirror/bin
   mount -o bind /data/adb/magisk /sbin/.core/mirror/bin

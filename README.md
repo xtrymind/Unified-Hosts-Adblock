@@ -29,6 +29,9 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
 ## Changelog
+v3.7
+  - EOF fix, should fix weird script errors. Thanks to Simon Dellenbach
+
 v3.6
   - Put app in vendor if oreo
   - Have wget check certificates now since magisk busybox supports it
