@@ -10,6 +10,7 @@ TREADME=/cache/uhatreadme
 FILTER=/sbin/.core/img/unifiedhostsadblock/filter
 WHITELIST=/sdcard/whitelist
 BLACKLIST=/sdcard/blacklist
+UNBLOCK=/sdcard/unblock
 TEMP=/cache/uhatemp
 COUNT=1
 wget -q -O $TREADME https://raw.githubusercontent.com/StevenBlack/hosts/master/readme.md
@@ -48,6 +49,7 @@ do
 		echo "'b' to add blacklist"
 		echo "'w' to add whitelist (search for exact strings)"
 		echo "'wr' to add whitelist (use regex - needed for wildcards)"
+		echo "'ub' to add unblock site"
 		echo -n "'q' to quit: "
 		read -r INPUT
 		if [ "$INPUT" != "m" ]; then
@@ -149,7 +151,35 @@ do
 					echo "Apply a hosts file first"
 				fi
 		    fi
-			;;
+		;;
+		ub)	if [ ! -f $UNBLOCK ]; then
+				echo ""
+				echo "*No Unblock detected*"
+				echo "Copy your unblock to /sdcard"
+			else
+				if [ -f "$HOST" ]; then
+					if [ -s $UNBLOCK ]; then
+						echo ""
+						echo "Applying Unblock"
+						NEWFILTERS="$(cat $UNBLOCK )"
+						printf '%s\n' "$NEWFILTERS" | while IFS= read -r linenew
+						do
+						  if [ ! "$(grep -Fx "$linenew" $HOST)" ]; then
+							sed -i -e "\$a $linenew" $HOST
+						  fi
+						done
+					else
+						echo ""
+						echo "Unblock file is empty"
+						echo "No new filter rules added"
+					fi
+				else
+					echo ""
+					echo "No hosts file detected"
+					echo "Apply a hosts file first"
+				fi
+		    fi
+		;;
 		q) break
 		;;
 		*)  echo ""
