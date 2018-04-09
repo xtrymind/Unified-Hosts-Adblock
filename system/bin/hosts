@@ -161,13 +161,8 @@ do
 					if [ -s $UNBLOCK ]; then
 						echo ""
 						echo "Applying Unblock"
-						NEWFILTERS="$(cat $UNBLOCK )"
-						printf '%s\n' "$NEWFILTERS" | while IFS= read -r linenew
-						do
-						  if [ ! "$(grep -Fx "$linenew" $HOST)" ]; then
-							sed -i -e "\$a $linenew" $HOST
-						  fi
-						done
+						cat $HOST $UNBLOCK > $TEMP
+						mv $TEMP $HOST
 					else
 						echo ""
 						echo "Unblock file is empty"
