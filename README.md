@@ -22,6 +22,11 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
  - Create a text file on sdcard called "blacklist"
  - Add exact lines you want to remove it (do not include the 0.0.0.0 -> so for example: "facebook.com")
  - Run hosts script and choose blacklist option
+
+#### unblock Instructions:
+ - Create a text file on sdcard called "unblock"
+ - Add lines with site ip address alongside site name (example: "151.101.129.140 reddit.com")
+ - Run hosts script and choose unblock option
  
 #### To Remove Whitelist/Blacklist:
  - Just run hosts script and reinstall host file of choice
@@ -29,6 +34,10 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
 ## Changelog
+v3.8
+  - Add unblock options
+  - Remove Unified APK
+
 v3.7
   - EOF fix, should fix weird script errors. Thanks to Simon Dellenbach
 
