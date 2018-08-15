@@ -120,13 +120,6 @@ if $INSTALL; then
   # Extract files to system. Use your own method if needed
   ui_print "- Extracting module files"
   unzip -o "$ZIP" 'system/*' -d $MODPATH 2>/dev/null
-  if [ $API -ge 26 ]; then
-    mkdir -p $MODPATH/system/vendor/app/Unified\ Hosts\ Manager
-    cp -f $INSTALLER/common/Unified\ Hosts\ Manager.apk $MODPATH/system/vendor/app/Unified\ Hosts\ Manager/Unified\ Hosts\ Manager.apk
-  else
-    mkdir -p $MODPATH/system/priv-app/Unified\ Hosts\ Manager
-    cp -f $INSTALLER/common/Unified\ Hosts\ Manager.apk $MODPATH/system/priv-app/Unified\ Hosts\ Manager/Unified\ Hosts\ Manager.apk
-  fi
 
   # Handle replace folders
   for TARGET in $REPLACE; do
