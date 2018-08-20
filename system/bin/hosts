@@ -145,7 +145,11 @@ do
 						printf '%s\n' "$NEWFILTERS" | while IFS= read -r linenew
 						do
 						  if ! grep -qFx "$linenew" "$HOST"; then
-							sed -i -e "\$a0.0.0.0 $linenew" $HOST
+							if grep -qi "^[0]" <<<"$linenew"; then
+								sed -i -e "\$a $linenew" $HOST
+							else
+								sed -i -e "\$a0.0.0.0 $linenew" $HOST
+							fi
 						  fi
 						done
 					else
