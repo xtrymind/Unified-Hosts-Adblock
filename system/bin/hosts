@@ -14,7 +14,7 @@ BLACKLIST=/sdcard/blacklist
 UNBLOCK=/sdcard/unblock
 TEMP=/cache/uhatemp
 COUNT=1
-wget -q -O $TREADME https://raw.githubusercontent.com/StevenBlack/hosts/master/readme.md
+wget -q -O $TREADME --no-check-certificate https://raw.githubusercontent.com/StevenBlack/hosts/master/readme.md
 grep "Last updated:" $TREADME
 if [ -f $FILTER ]; then
 	CURRENT=$(grep "Last updated:" $TREADME)
@@ -184,7 +184,7 @@ do
 	esac
 	if [ $DIR ]; then
 		echo ""
-		wget -O $HOST https://raw.githubusercontent.com/StevenBlack/hosts/$DIR
+		wget -O $HOST --no-check-certificate https://raw.githubusercontent.com/StevenBlack/hosts/$DIR
 		grep "Last updated:" $TREADME > $FILTER
 	fi
 	DIR=""
