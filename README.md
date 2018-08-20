@@ -20,7 +20,7 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 
 #### Blacklist Instructions:
  - Create a text file on sdcard called "blacklist"
- - Add exact lines you want to remove it (do not include the 0.0.0.0 -> so for example: "facebook.com")
+ - Add exact lines you want to add (with the 0.0.0.0 or without it -> so for example: "0.0.0.0 facebook.com" or "facebook.com")
  - Run hosts script and choose blacklist option
 
 #### unblock Instructions:
@@ -34,6 +34,9 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
 ## Changelog
+v4.0
+  - in blacklist, you can write '0.0.0.0 site.com' or just 'site.com'
+
 v3.9
   - Don't check for cert as it's not implemented
   - Fix shellcheck warning
