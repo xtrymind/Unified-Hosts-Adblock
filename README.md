@@ -34,6 +34,10 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
 ## Changelog
+v3.9
+  - Don't check for cert as it's not implemented
+  - Fix shellcheck warning
+
 v3.8
   - Add unblock options
   - Remove Unified APK
