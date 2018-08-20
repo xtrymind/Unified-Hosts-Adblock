@@ -137,7 +137,7 @@ do
 						NEWFILTERS="$(cat $BLACKLIST)"
 						printf '%s\n' "$NEWFILTERS" | while IFS= read -r linenew
 						do
-						  if [ ! "$(grep -Fx "$linenew" $HOST)" ]; then
+						  if ! grep -qFx "$linenew" "$HOST"; then
 							sed -i -e "\$a0.0.0.0 $linenew" $HOST
 						  fi
 						done
