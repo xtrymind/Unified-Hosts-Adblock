@@ -34,6 +34,9 @@ Small adblock magisk module using unified host files from Steven Black [(Check o
 ## [Support](https://forum.xda-developers.com/apps/magisk/magisk-unified-hosts-adblocker-t3559019)
 
 ## Changelog
+v4.1
+  - Update magisk module to 17000
+
 v4.0
   - in blacklist, you can write '0.0.0.0 site.com' or just 'site.com'
 
