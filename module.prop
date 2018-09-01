@@ -4,4 +4,4 @@ version=v4.0
 versionCode=201808201
 author=Zackptg5
 description=Small adblock magisk module using host files from Steven Black (https://github.com/StevenBlack/hosts). Add unblock feature to bypass blocked site with hosts by @xtrymind
-minMagisk=1500
+minMagisk=17000
